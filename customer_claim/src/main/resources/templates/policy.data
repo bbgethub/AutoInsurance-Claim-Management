@@ -1,0 +1,1 @@
+insert into policy (type, customerid, created, lastModified) values ('AUTO',1,GETDATE(),GETDATE())

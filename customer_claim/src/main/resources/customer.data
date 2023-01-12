@@ -1,0 +1,3 @@
+    insert into customer (firstname, lastname, dob, address, phone, email,gender,created,lastModified) values ('Jeff','Wyler','2001-06-12','Performance Honda , Blue Ash , Ohio 45050 ','6146146144','mail@yahoo.com','Male',GETDATE(),GETDATE())
+    insert into customer (firstname, lastname, dob, address, phone, email,gender,created,lastModified) values ('Sasi','Ray','1993-05-12','Toyota Of Texoma , Sherman , Texas 75030 ','4694694699','mail@yahoo.com','Female',GETDATE(),GETDATE())
+    insert into customer (firstname, lastname, dob, address, phone, email,gender,created,lastModified) values ('Mark','John','1950-05-12','Toyota Of Charlotte , Greensboro , NC 21054 ','2142142444','mail@yahoo.com','Female',GETDATE(),GETDATE())

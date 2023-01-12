@@ -1,0 +1,80 @@
+USE [tempdb]
+GO
+
+/****** Object:  Table [dbo].[customers_tbl]    Script Date: 1/10/2023 12:21:03 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[claim_mgnt_customers_tbl](
+	[customer_id] [int] IDENTITY(1,1) NOT NULL,
+	[first_name] [nvarchar](50) NOT NULL,
+	[last_name] [nvarchar](50) NOT NULL,
+	[dob] [date] NOT NULL,
+	[address] [nvarchar](max) NOT NULL,
+	[phone] [numeric](18, 0) NOT NULL,
+	[email] [nvarchar](50) NOT NULL,
+	[gender] [char](10) NULL,
+	[insurance_amount] [int] NOT NULL,
+	[insurance_id] [int] NOT NULL,
+	[createdDate][date]NOT NULL,
+	[lastModifiedDate][date]NOT NULL,
+	[status][nvarchar](50) NULL,
+	[notes][nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+***************************************************
+USE [tempdb]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[claim_mgnt_user_tbl](
+	[user_id] [nchar](10) NOT NULL,
+	[password] [nchar](10) NOT NULL
+) ON [PRIMARY]
+GO
+
+*****************************************************
+USE [tempdb]
+GO
+
+/****** Object:  Table [dbo].[claim_mgnt_document_tbl]    Script Date: 1/11/2023 2:35:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[claim_mgnt_document_tbl](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[customer_id] [int] NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[type] [nvarchar](50) NULL,
+	[document] [varbinary](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+******************************************************************
+USE [tempdb]
+GO
+
+/****** Object:  Table [dbo].[claim_status_tbl]    Script Date: 1/11/2023 2:03:39 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[claim_status_tbl](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[customer_id] [int] NOT NULL,
+	[status] [nvarchar](50) NOT NULL,
+	[reason] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
