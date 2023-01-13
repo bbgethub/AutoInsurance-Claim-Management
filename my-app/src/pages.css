@@ -1,0 +1,21 @@
+  .edit{
+    height:90vh;
+    text-align: center;
+    align-items:center;
+    justify-content: center;
+    font-size:3rem;
+    display:table;
+    margin-right: auto;
+    margin-left:10%;
+  }
+  .view{
+    height:90vh;
+    text-align: center;
+    align-items:center;
+    justify-content: center;
+    font-size:3rem;
+    display:table;
+    margin-right: auto;
+    margin-left:10%;
+  }
+ 

@@ -1,0 +1,28 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: rgb(79, 130, 232);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-size: 17px;
+  font-weight: 600;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: #f2f2f2;
+    padding: 16px;
+    text-decoration: none;
+  } 
+  .sidebar a:hover:not(.active) {
+    background-color:rgb(237, 239, 242);
+    color: rgb(76, 143, 230);
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
