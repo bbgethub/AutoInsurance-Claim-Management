@@ -1,4 +1,5 @@
 package org.genspark.customer_claim.entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class Customer {
     @Getter
     @Setter
     @Column(name="dob")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dob;
     @Getter
     @Setter

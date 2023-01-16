@@ -25,6 +25,10 @@ public class ClaimService {
     {
         return claimRepository.findById(id);
     }
+    public  List<Claim> getClaimsByIds(List<Long> ids)
+    {
+        return claimRepository.findAllById(ids);
+    }
 
     public Claim updateCustomerClaim(Long id,Claim claim) {
         Claim updateCustomerClaim= claimRepository.findById(id).get();

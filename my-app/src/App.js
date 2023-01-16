@@ -5,6 +5,9 @@ import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Create from './pages/Create';
 import Edit from './pages/Edit';
 import View from './pages/View';
+import ClaimList from './component/ClaimList/ClaimList';
+import CreateClaim from './component/CreateClaim/CreateClaim';
+
 
 
 function App() {
@@ -16,7 +19,8 @@ function App() {
        <Route exact path="/create" element={<Create/>}/>
        <Route exact path="/" element={<Create/>}/>
        <Route path="/edit" element={<Edit/>}/>
-       <Route path="/view" element={<View/>}/>
+       <Route path="/view" element={<ClaimList/>}/>
+       <Route path="/create2" element={<CreateClaim/>}/>
        </Routes >
     
     </Router>

@@ -14,28 +14,40 @@ public class ClaimController {
     @Autowired
     ClaimService claimService;
     //Create New Claim
+    @CrossOrigin
     @RequestMapping(value="/create", method= RequestMethod.POST)
     public Claim createNewClaim(@RequestBody Claim claim)
     {
         return claimService.createClaim(claim);
     }
     //View All Claims
+    @CrossOrigin
     @RequestMapping(value="/getAll", method= RequestMethod.GET)
     public List<Claim> getAllClaims()
     {
         return claimService.getAllClaims();
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getFor", params = "ids", method = RequestMethod.GET)
+    public List<Claim> getAllClaimsByIds(@PathVariable List<Long> ids)
+    {
+        return claimService.getClaimsByIds(ids);
+    }
     //View By Customer Claim Id
+    @CrossOrigin
     @RequestMapping(value="/{customerClaimId}", method= RequestMethod.GET)
     public Optional<Claim> getCustomerClaimById(@PathVariable("customerClaimId")Long id)
     {
         return claimService.getSingleClaimById(id);
     }
+    @CrossOrigin
     @RequestMapping(value="/{customerClaimId}",method=RequestMethod.PUT)
     public Claim updateCustomerClaim(@PathVariable("customerClaimId")Long id,@RequestBody Claim claim)
     {
         return claimService.updateCustomerClaim(id,claim);
     }
+    @CrossOrigin
     @RequestMapping(value="/{customerClaimId}", method= RequestMethod.DELETE)
     public void deleteClaimDocument(@PathVariable("customerClaimId")Long id)
     {

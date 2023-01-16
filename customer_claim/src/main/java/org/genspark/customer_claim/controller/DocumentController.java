@@ -17,30 +17,36 @@ import java.util.Optional;
 public class DocumentController {
     @Autowired
     DocumentService documentService;
+    @CrossOrigin
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
-   public ResponseEntity<ResponseMessage> uploadDocument(@RequestParam("customerId")int customerId,@RequestParam("document")MultipartFile file)
+   public ResponseEntity<ResponseMessage> uploadDocument(@RequestParam("customerId")int customerId,@RequestParam("document")MultipartFile[] files)
     {
         String message="";
         try {
-            documentService.createClaimDocument(customerId, file);
-            message = "Uploaded the file successfully: " + file.getOriginalFilename();
+            for(MultipartFile file : files){
+                documentService.createClaimDocument(customerId, file);
+                message = message + " Uploaded files successfully: " + file.getOriginalFilename();
+            }
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         }catch (Exception e)
         {
-            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+            message = "Could not upload the file: " + files + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
     }
+    @CrossOrigin
     @RequestMapping(value="/getAll",method=RequestMethod.GET)
     public List<Document> getAllClaimDocument()
     {
         return documentService.getAllClaims();
     }
+    @CrossOrigin
     @RequestMapping(value = "/{documentId}",method=RequestMethod.GET)
     public Optional<Document> getDocument(@PathVariable(value = "documentId")Long id)
     {
         return documentService.getDocumentById(id);
     }
+    @CrossOrigin
     @RequestMapping(value = "/{documentId}",method=RequestMethod.PUT)
     public ResponseEntity<ResponseMessage> updateDocument(@PathVariable("documentId")Long documentId, @RequestParam("customerId")int customerId, @RequestParam("document")MultipartFile file)
     {
@@ -56,6 +62,7 @@ public class DocumentController {
         }
 
     }
+    @CrossOrigin
     @RequestMapping(value="/{documentId}",method=RequestMethod.DELETE)
     public void deleteClaimDocument(@PathVariable("documentId")Long documentId)
     {
